@@ -19,7 +19,7 @@ def find_top_users():
         list_users = []
     else:
         print("Status Code Error")
-    for i in range(3):
+    for i in range(256):
         names = soup.find_all("th", scope="row")[i].findNext("td").text.split()[0]
         list_users.append(names)
     return list_users
