@@ -5,7 +5,7 @@ import time
 import pandas as pd
 
 
-token = "85c2a2d4632476e5054979b6216b4f08b212fa09"
+token = ""
 headers = {'Authorization': 'token {}'.format(token)}
 
 t1 = time.time()
@@ -19,7 +19,7 @@ def find_top_users():
         list_users = []
     else:
         print("Status Code Error")
-    for i in range(256):
+    for i in range(3):
         names = soup.find_all("th", scope="row")[i].findNext("td").text.split()[0]
         list_users.append(names)
     return list_users
