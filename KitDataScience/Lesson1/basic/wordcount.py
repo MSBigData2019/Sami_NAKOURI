@@ -39,7 +39,29 @@ print_words() and print_top().
 
 import sys
 
-# +++your code here+++
+
+def word_count_dict(filename):
+    dict_word = {}
+    with open(filename, 'r') as text:
+        for line in text:
+            for word in line.split():
+                if word not in dict_word.keys():
+                    dict_word[word] = 1
+                else:
+                    dict_word[word] += 1
+    return dict_word
+
+
+def print_words(filename):
+    dict = word_count_dict(filename)
+    for key in sorted(dict):
+        print("%s: %s" % (key, dict[key]))
+
+
+# you may also want to remove whitespace characters like `\n` at the end of each line
+#content = [x.strip() for x in content]
+
+
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
@@ -51,19 +73,19 @@ import sys
 # calls the print_words() and print_top() functions which you must define.
 
 def main():
-  if len(sys.argv) != 3:
-    print('usage: ./wordcount.py {--count | --topcount} file')
+    if len(sys.argv) != 3:
+        print('usage: ./wordcount.py {--count | --topcount} file')
+        sys.exit(1)
+
+    option = sys.argv[1]
+    filename = sys.argv[2]
+    if option == '--count':
+        print_words(filename)
+    elif option == '--topcount':
+        print_top(filename)
+    else:
+        print('unknown option: ' + option)
     sys.exit(1)
 
-  option = sys.argv[1]
-  filename = sys.argv[2]
-  if option == '--count':
-    print_words(filename)
-  elif option == '--topcount':
-    print_top(filename)
-  else:
-    print('unknown option: ' + option)
-    sys.exit(1)
-
-if __name__ == '__main__':
-  main()
+    if __name__ == '__main__':
+        main()
