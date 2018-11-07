@@ -40,7 +40,11 @@ def extract_names(filename):
   followed by the name-rank strings in alphabetical order.
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
   """
-  # +++your code here+++
+  #with open(filename, newline='') as text:
+        year_match = re.search(r'Popularity\sin\s(\d\d\d\d)', text)
+
+
+
   return
 
 
