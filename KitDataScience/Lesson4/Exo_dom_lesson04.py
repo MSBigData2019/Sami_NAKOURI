@@ -51,18 +51,23 @@ soup = build_soup(url)
 number_pages = find_number_pages(soup)
 list_url_cars = url_list_for_all_cars(soup)
 dic_result = all_data_car(list_url_cars)
-#for page in range(1, number_pages + 1):
-page = 1
-url_page = f"https://www.lacentrale.fr/listing?makesModelsCommercialNames=RENAULT%3AZOE%3A&options=&page={page}&regions=FR-IDF%2CFR-NAQ%2CFR-PAC"
-soup = build_soup(url_page)
-list_url_cars = url_list_for_all_cars(soup)
-dic_result.update( all_data_car(list_url_cars))
 
-df = pd.DataFrame(dic_result).T
-df.columns = ["Version", "Year", "KM", "Seller", "price"]
-df.reset_index(drop=True, inplace=True)
+for page in range(1, number_pages + 1):
+    url_page = f"https://www.lacentrale.fr/listing?makesModelsCommercialNames=RENAULT%3AZOE%3A&options=&page={page}&regions=FR-IDF%2CFR-NAQ%2CFR-PAC"
+    soup = build_soup(url_page)
+    list_url_cars = url_list_for_all_cars(soup)
+    dic_result.update( all_data_car(list_url_cars))
 
-#df["version"].str.replace("-", "", inplace=True)
-print(df.describe())
+    df = pd.DataFrame(dic_result).T
+    df.columns = ["Version", "Year", "KM", "Seller", "price"]
+    df.reset_index(drop=True, inplace=True)
+
+reg = r"[\D+€]"
+reg2 = r"[\D+]"
+df["Version"] = df["Version"].str.replace("-", "")
+df["price"] = df["price"].str.replace(reg, "").astype(int)
+df["KM"] = df["KM"].str.replace(reg2, "").astype(int)
+
+
 print(df)
 
