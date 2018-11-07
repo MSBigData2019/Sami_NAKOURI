@@ -28,7 +28,7 @@ def main():
   # which is the script itself.
   args = sys.argv[1:]
   if not args:
-    print "usage: [--todir dir][--tozip zipfile] dir [dir ...]";
+    print("usage: [--todir dir][--tozip zipfile] dir [dir ...]")
     sys.exit(1)
 
   # todir and tozip are either set from command line

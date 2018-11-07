@@ -52,7 +52,7 @@ import sys
 
 def main():
   if len(sys.argv) != 3:
-    print ('usage: ./wordcount.py {--count | --topcount} file')
+    print('usage: ./wordcount.py {--count | --topcount} file')
     sys.exit(1)
 
   option = sys.argv[1]
@@ -62,7 +62,7 @@ def main():
   elif option == '--topcount':
     print_top(filename)
   else:
-    print ('unknown option: ' + option)
+    print('unknown option: ' + option)
     sys.exit(1)
 
 if __name__ == '__main__':
