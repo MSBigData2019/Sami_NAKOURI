@@ -1,0 +1,4 @@
+;reload; set _root_.org.jetbrains.sbt.StructureKeys.sbtStructureOptions in Global := "download resolveClassifiers resolveSbtClassifiers" ;*/*:dumpStructureTo /private/var/folders/59/7f4twxf13hj5nkmxdx9q13z00000gp/T/sbt-structure.xml; session clear-all
+all {file:/Users/Nakouri/DS/Spark/TP2/TP_ParisTech_2017_2018_starter/}tp_paristech_2017_2018_starter/products {file:/Users/Nakouri/DS/Spark/TP2/TP_ParisTech_2017_2018_starter/}tp_paristech_2017_2018_starter/test:products
+clear
+;reload; set _root_.org.jetbrains.sbt.StructureKeys.sbtStructureOptions in Global := "download resolveClassifiers resolveSbtClassifiers" ;*/*:dumpStructureTo /private/var/folders/59/7f4twxf13hj5nkmxdx9q13z00000gp/T/sbt-structure.xml; session clear-all
